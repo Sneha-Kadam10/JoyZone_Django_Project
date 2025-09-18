@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: joyzone-django-project
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn joyzone.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: joyzone.settings
+      - key: PYTHON_VERSION
+        value: 3.11
