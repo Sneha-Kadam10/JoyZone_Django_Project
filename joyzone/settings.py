@@ -62,6 +62,8 @@ MIDDLEWARE = [
     "users.middleware.RestrictAdminAccessMiddleware",
 ]
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 ROOT_URLCONF = 'joyzone.urls'
 
 TEMPLATES = [
@@ -128,7 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 import os
-STATIC_URL = '/static/'
+STATIC_URL = 'https://joyzone-django-project-1.onrender.com'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # keep this for dev
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')   # add this for collectstatic
 # Default primary key field type
