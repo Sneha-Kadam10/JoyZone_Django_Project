@@ -130,9 +130,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 import os
-STATIC_URL = 'https://joyzone-django-project-1.onrender.com'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # keep this for dev
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')   # add this for collectstatic
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]   # For development
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')     # For collectstatic
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
