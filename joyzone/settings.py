@@ -16,14 +16,22 @@ LOGIN_URL = "/users/login/"
 LOGIN_REDIRECT_URL = "/dashboard/"
 LOGOUT_REDIRECT_URL = "/"
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y!7(axogcr0^i+76xyo3*=a@(h-vzg0t)6y^0)u)mxq1(7eu)w'
+from decouple import config
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # ⚠ Set False for Render deployment
+# Secret key
+SECRET_KEY = config("SECRET_KEY")
 
-# Allowed hosts
-ALLOWED_HOSTS = ['joyzone-django-project-3.onrender.com']
+# Environment
+ENVIRONMENT = config("DJANGO_ENV", default="local")
+
+if ENVIRONMENT == "production":
+    DEBUG = False
+    ALLOWED_HOSTS = ["joyzone-django-project-3.onrender.com"]
+else:
+    DEBUG = True
+    ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+
+
 
 # Application definition
 INSTALLED_APPS = [
